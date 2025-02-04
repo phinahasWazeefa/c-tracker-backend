@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const uri = "mongodb+srv://ctracker:ctracker@my-cluster.udgav8g.mongodb.net/C-Tracker?retryWrites=true&w=majority&appName=My-Cluster";
 
+const uri = "mongodb+srv://ctracker:ctracker@my-cluster.udgav8g.mongodb.net/C-Tracker?retryWrites=true&w=majority&appName=My-Cluster"
 const MONGO_URI = uri ;
 const connectDB = async () => {
     try {
