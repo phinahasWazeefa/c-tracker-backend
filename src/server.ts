@@ -15,7 +15,7 @@ connectDB()
 server.use(cors());
 server.use(express.json())
 
-server.use('/',Routes);
+server.use('/api',Routes);
 
 
 
