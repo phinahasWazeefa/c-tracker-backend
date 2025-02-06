@@ -9,7 +9,9 @@ import {ApiError} from '../util/ApiError'
 
 export const isUser = async (req:Request, res:Response, next:NextFunction) => {
     try {
+      console.log(req.url)
       const authHeader = req.get("Authorization");
+      console.log(authHeader)
       if (!authHeader) {
         throw new ApiError("Not authenticated",400)
     

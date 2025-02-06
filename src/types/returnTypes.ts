@@ -19,6 +19,7 @@ export interface ItemsReturn extends Return {
 }
 
 export interface NewSessionCreatedReturn extends Return {
-    sessionId?:Types.ObjectId | string
+    sessionId?:Types.ObjectId | string,
+    sessionName?:string
     
 }

@@ -34,7 +34,7 @@ export const creatASesion = async (req:Request,res:Response,next:NextFunction)=>
         const response = await userService.createASession(req.body) ;
       
       
-        res.status(response.statusCode).send({message:response.message,sessionId:response.sessionId})
+        res.status(response.statusCode).send({message:response.message,sessionId:response.sessionId,sessionName:response.sessionName})
         
     } catch (error) {
         next(error)
@@ -47,7 +47,7 @@ export const getASessionOfAUser = async (req:Request,res:Response,next:NextFunct
         const response = await userService.getSessionOfAUser(req.body) ;
        
       
-        res.status(response.statusCode).send({message:response.message,sessionId:response.sessionId})
+        res.status(response.statusCode).send({message:response.message,sessionId:response.sessionId,sessionName:response.sessionName})
         
     } catch (error) {
         next(error)
@@ -80,3 +80,42 @@ export const getASessionExpenses = async (req:Request,res:Response,next:NextFunc
         next(error)
     }
 }
+
+
+export const closeASesion = async (req:Request,res:Response,next:NextFunction)=>{
+    try {
+
+        const response = await userService.closeASession(req.body) ;
+      
+      
+        res.status(response.statusCode).send({message:response.message})
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const getSessions = async (req:Request,res:Response,next:NextFunction)=>{
+    try {
+
+        const response = await userService.getSessions(req.body) ;
+        res.status(response.statusCode).send({message:response.message,sessions:response.sessions})
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+export const getASessionBill = async (req:Request,res:Response,next:NextFunction)=>{
+    try {
+
+        req.body.sessionLogId = req.query.sessionLogId
+        const response = await userService.getASessionBill(req.body) ;
+        res.status(response.statusCode).send({message:response.message,sessionBill:response.sessionBill})
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
