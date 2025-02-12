@@ -21,7 +21,7 @@ export const creatAnItem = async (req:Request,res:Response,next:NextFunction)=>{
 
         const response = await userService.createAnItem(req.body) 
 
-        res.status(200).send({message:response.message,item:response.item})
+        res.status(response.statusCode).send({message:response.message,item:response.item})
         
     } catch (error) {
         next(error)

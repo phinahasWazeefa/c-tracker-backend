@@ -14,7 +14,7 @@ export const createAnItem = async ({user,itemName,itemPrice}:{user:string,itemNa
        
         const formatString =  utils.formatString(itemName);
 
-        const itemFromDb = await Item.findOne({name:formatString});
+        const itemFromDb = await Item.findOne({name:formatString,user:new ObjectId(user)});
         if(itemFromDb)
         return {statusCode:409,message:"Item already exists"}
 
